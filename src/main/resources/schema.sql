@@ -21,22 +21,27 @@ create table users
 
 create table roles
 (
-    id   bigint,
+    id   bigint auto_increment,
     name varchar(255),
     primary key (id)
 );
 
 create table users_roles(
     user_id bigint,
-    role_id bigint
+    role_id bigint,
+    FOREIGN KEY (user_id)  REFERENCES users (id),
+    FOREIGN KEY (role_id)  REFERENCES roles (id)
 );
 
 create table products(
-    id bigint,
+    id bigint auto_increment,
     name varchar(255),
     price decimal,
     description varchar(255),
-    deleted boolean
+    deleted boolean,
+    user_id bigint,
+    primary key (id),
+    FOREIGN KEY (user_id)  REFERENCES users (id)
 
 );
 
