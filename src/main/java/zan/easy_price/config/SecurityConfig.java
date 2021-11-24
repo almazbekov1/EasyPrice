@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -42,13 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**.css"
                 ).permitAll()
                 .antMatchers("/**").permitAll()
-//                .antMatchers("/api/admin").access("hasAnyRole('ROLE_ADMIN')")
-//                .antMatchers("/api/user").access("hasAnyRole('ROLE_USER')")
-//                .antMatchers("/admin.html").access("hasAnyRole('ROLE_ADMIN')")
-//                .antMatchers("/user.html").access("hasAnyRole('ROLE_USER')")
-                .anyRequest().permitAll()
-
-//                .antMatchers("/").permitAll()
                 .and()
                 .formLogin()
                 .permitAll()
