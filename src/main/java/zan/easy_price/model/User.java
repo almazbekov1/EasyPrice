@@ -1,6 +1,7 @@
 package zan.easy_price.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -34,8 +35,6 @@ public class User {
 
     private String email;
 
-    private String company;
-
     @ManyToMany(fetch = FetchType.EAGER,
             cascade = CascadeType.REFRESH)
     @JoinTable(
@@ -44,12 +43,11 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToMany(cascade = CascadeType.ALL
-            ,mappedBy = "user"
-            ,fetch = FetchType.LAZY
-    )
-//    @JoinColumn(name = "department_id")
-    private List<Product> products;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn()
+    private Company company;
+
+
 
 
 
