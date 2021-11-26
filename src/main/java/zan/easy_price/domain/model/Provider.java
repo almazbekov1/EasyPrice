@@ -1,4 +1,4 @@
-package zan.easy_price.model;
+package zan.easy_price.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -8,8 +8,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "providers")
+public class Provider {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Company {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL
-            ,mappedBy = "company"
+            ,mappedBy = "provider"
             ,fetch = FetchType.LAZY
     )
 //    @JoinColumn(name = "product_id")
@@ -37,7 +37,7 @@ public class Company {
 
     @Transient
     @JsonIgnore
-    @OneToOne(mappedBy = "company",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "provider",cascade = CascadeType.ALL)
     private User user;
 
 }

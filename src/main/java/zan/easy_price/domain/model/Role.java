@@ -1,4 +1,4 @@
-package zan.easy_price.model;
+package zan.easy_price.domain.model;
 
 
 import lombok.Data;

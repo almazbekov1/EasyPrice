@@ -1,7 +1,6 @@
-package zan.easy_price.model;
+package zan.easy_price.domain.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -41,11 +40,11 @@ public class User {
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private List<Role> roles;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn()
-    private Company company;
+    private Provider provider;
 
 
 
