@@ -1,23 +1,25 @@
+-- ALTER TABLE providers
+--     DROP FOREIGN KEY FK9akjf68hho3lk17ll3ecebyc5;
 DROP TABLE IF EXISTS users_roles;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS roles;
-ALTER TABLE companies
-    DROP FOREIGN KEY FKin8gn4o1hpiwe6qe4ey7ykwq7;
+-- ALTER TABLE providers
+--     DROP FOREIGN KEY FKin8gn4o1hpiwe6qe4ey7ykwq7;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS companies;
+DROP TABLE IF EXISTS providers;
 DROP TABLE IF EXISTS test;
 
-create table companies
+create table providers
 (
-    id   bigint auto_increment,
-    name varchar(255),
-    enabled boolean,
-    city varchar(255),
-    address varchar(255),
+    id           bigint auto_increment,
+    name         varchar(255),
+    enabled      boolean,
+    city         varchar(255),
+    address      varchar(255),
     phone_number varchar(255),
-    email varchar(255),
-    product_id varchar(255),
-    user_id bigint,
+    email        varchar(255),
+--     product_id   bigint,
+--     user_id      bigint,
     primary key (id)
 );
 
@@ -32,12 +34,12 @@ create table users
     password      varchar(255),
     phone_number  varchar(255),
     register_date varchar(255),
-    company_id    bigint,
+    provider_id    bigint,
     primary key (id),
-    constraint FK7s32q29gv59m1m4khhr2bd9ox foreign key (company_id) references companies (id)
+    constraint FK7s32q29gv59m1m4khhr2bd9ox foreign key (provider_id) references providers (id)
 );
-ALTER TABLE companies
-    ADD CONSTRAINT FKin8gn4o1hpiwe6qe4ey7ykwq7 FOREIGN KEY  (user_id) REFERENCES users(id) ;
+-- ALTER TABLE providers
+--     ADD CONSTRAINT FKin8gn4o1hpiwe6qe4ey7ykwq7 FOREIGN KEY (user_id) REFERENCES users (id);
 
 create table roles
 (
@@ -56,13 +58,19 @@ create table users_roles
 
 create table products
 (
-    id          bigint auto_increment,
-    name        varchar(255),
-    price       decimal,
-    description varchar(255),
-    deleted     boolean,
-    company_id     bigint,
+    id                bigint auto_increment,
+    name              varchar(255),
+    unit              varchar(255),
+    price             decimal,
+    manufacturing     varchar(255),
+    expiration_date   varchar(255),
+    factory_packaging varchar(255),
+    enabled           boolean,
+    provider_id       bigint,
     primary key (id),
-    CONSTRAINT FK2o0jvgh89lemvvo17cbqvdxaa FOREIGN KEY (company_id) REFERENCES companies (id)
+    CONSTRAINT FK2o0jvgh89lemvvo17cbqvdxaa FOREIGN KEY (provider_id) REFERENCES providers (id)
 
 );
+
+-- ALTER TABLE providers
+--     ADD CONSTRAINT FK9akjf68hho3lk17ll3ecebyc5 FOREIGN KEY (product_id) REFERENCES products (id);

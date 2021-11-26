@@ -1,11 +1,11 @@
-package zan.easy_price.service;
+package zan.easy_price.service.impl;
 
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import zan.easy_price.model.Role;
-import zan.easy_price.model.User;
+import zan.easy_price.domain.model.Role;
+import zan.easy_price.domain.model.User;
 
 import java.util.ArrayList;
 import java.util.Collection;

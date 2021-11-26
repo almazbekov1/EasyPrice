@@ -1,11 +1,11 @@
-package zan.easy_price.service;
+package zan.easy_price.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import zan.easy_price.model.User;
+import zan.easy_price.domain.model.User;
 import zan.easy_price.repo.UserRepo;
 
 @Service
