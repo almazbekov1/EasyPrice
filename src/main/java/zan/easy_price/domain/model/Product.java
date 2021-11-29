@@ -1,6 +1,5 @@
 package zan.easy_price.domain.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
