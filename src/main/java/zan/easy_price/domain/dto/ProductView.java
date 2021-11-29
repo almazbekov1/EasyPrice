@@ -1,10 +1,7 @@
 package zan.easy_price.domain.dto;
 
 import lombok.Data;
-import zan.easy_price.domain.model.Provider;
-
-import javax.persistence.Column;
-import java.util.List;
+import zan.easy_price.domain.object.ProviderObject;
 
 @Data
 public class ProductView {
@@ -16,6 +13,6 @@ public class ProductView {
     private String manufacturing;
     private String expirationDate;
     private String factoryPackaging;
-    private Provider provider;
+    private ProviderObject provider;
 
 }
